@@ -5,8 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InventoryProjectCsharp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Stock Manager Client: Current Stock" Height="350" Width="600">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <ComboBox x:Name="comboBox"  Grid.Column="1" Grid.Row="0" Text="Sort by"
+         HorizontalAlignment="Left" Height="26" SelectionChanged="comboBox_SelectionChanged"
+                  VerticalAlignment="Top" Width="121" RenderTransformOrigin="0.544,0.923" Margin="29,26,0,0">
+            <ComboBoxItem IsSelected="True">Products</ComboBoxItem>
+            <ComboBoxItem IsSelected="True">Products (Desc)</ComboBoxItem>
+            <ComboBoxItem>Stock</ComboBoxItem>
+            <ComboBoxItem>Stock (Desc)</ComboBoxItem>
+        </ComboBox>
+        <StackPanel Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right">
+            <Label x:Name="label" Content="Product" HorizontalAlignment="Left" Height="27" 
+               VerticalAlignment="Top" Width="63" />
+            <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="27"
+                 TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250"
+                 Grid.ColumnSpan="2" TextChanged="textBox_TextChanged"/>
+        </StackPanel>
+        <ListView x:Name="listView" HorizontalContentAlignment="Stretch" HorizontalAlignment="Center"
+                  VerticalAlignment="Top"  Width="auto" Padding="0 0 0 30"
+                  Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="1">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Product" Width="400" DisplayMemberBinding="{Binding ProductName}"/>
+                    <GridViewColumn Header="Stock" Width="150" DisplayMemberBinding="{Binding ProductStock}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
     </Grid>
 </Window>
