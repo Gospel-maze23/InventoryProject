@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:InventoryProjectCsharp"
         mc:Ignorable="d"
         Title="Stock Manager Client: Current Stock" Height="350" Width="600">
-    <Grid>
+    <Grid Margin="0,0,0,35">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
